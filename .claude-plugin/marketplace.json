@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "ericcai0814-claude-plugins",
+  "owner": {
+    "name": "ericcai0814",
+    "email": "112368072+ericcai0814@users.noreply.github.com"
+  },
+  "plugins": [
+    {
+      "name": "claude-auto-dev",
+      "source": {
+        "source": "github",
+        "repo": "EricCaiCai/claude-auto-dev"
+      },
+      "description": "TDD 自動開發循環。Claude 跑 Red-Green-Refactor，Stop Hook 用 quality-gate 驗證完成。",
+      "keywords": ["tdd", "automation", "stop-hook", "quality-gate"]
+    },
+    {
+      "name": "meeting-pipeline",
+      "source": {
+        "source": "github",
+        "repo": "ericcai0814/claude-meeting-pipeline"
+      },
+      "description": "中文會議錄音 → 結構化紀錄 → 個人 issues。macOS / Apple Silicon only（mlx-whisper）。",
+      "keywords": ["meeting-notes", "whisper", "transcription", "chinese", "mlx", "macos"]
+    }
+  ]
+}
