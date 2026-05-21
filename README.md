@@ -14,6 +14,7 @@ self-hosted [Claude Code plugin marketplace](https://code.claude.com/docs/en/plu
 # 安裝
 /plugin install claude-auto-dev
 /plugin install meeting-pipeline
+/plugin install ai-coding-workflow
 ```
 
 ## Plugins overview
@@ -22,6 +23,7 @@ self-hosted [Claude Code plugin marketplace](https://code.claude.com/docs/en/plu
 |---|---|---|
 | [`claude-auto-dev`](#claude-auto-dev) | 跨平台 | [`EricCaiCai/claude-auto-dev`](https://github.com/EricCaiCai/claude-auto-dev) |
 | [`meeting-pipeline`](#meeting-pipeline) | macOS / Apple Silicon | [`ericcai0814/claude-meeting-pipeline`](https://github.com/ericcai0814/claude-meeting-pipeline) |
+| [`ai-coding-workflow`](#ai-coding-workflow) | 跨平台 | [`ericcai0814/ai-workflow-design`](https://github.com/ericcai0814/ai-workflow-design)（monorepo subdir） |
 
 ---
 
@@ -144,6 +146,53 @@ cp ~/.claude/plugins/meeting-pipeline/bin/transcribe-zh ~/.local/bin/
 | 混合場 | training template，把決議併入「關鍵原則」段 |
 
 詳細：[github.com/ericcai0814/claude-meeting-pipeline](https://github.com/ericcai0814/claude-meeting-pipeline)
+
+---
+
+## `ai-coding-workflow`
+
+**團隊標準化 AI 輔助開發工作流程。** 6 個獨立 skill 依任務類型分流 + 4 階段標準流程。
+
+### What it does
+
+把「AI 輔助寫 code」拆成 6 個專業 skill，各自服務單一任務類型（避免 context 互相污染）：
+
+| Skill | 觸發關鍵字 | 做什麼 |
+|---|---|---|
+| `planning` | 分析需求、建立計畫、技術選型 | 需求分析、架構設計 |
+| `frontend` | 設計系統、建立元件、UI、狀態管理 | 元件開發、前端架構 |
+| `backend` | API 設計、資料庫、認證、商業邏輯 | API/DB/middleware |
+| `validation` | 驗證、測試、整合、E2E | 驗證框架、整合與 E2E 測試 |
+| `review` | code review、安全審查、效能審查 | 程式碼/安全/效能審查 |
+| `troubleshooting` | bug、錯誤、修復、debug | 踩坑案例、除錯流程 |
+| `detect-context` | （由其他 skill 自動調用） | 技術棧/狀態/結構偵測 |
+
+### 四階段流程
+
+每個 skill 都遵循固定 Phase：
+
+```
+Phase 1: 任務理解        → 需求重述 + 假設清單 + 提問
+Phase 2: 任務規劃        → 執行計畫（WAIT FOR CONFIRMATION）
+Phase 3: 任務執行        → 按步驟執行、更新進度
+Phase 4: 驗收與交付      → 70% MVP + 產出清單
+```
+
+Phase 2 等使用者確認才進 Phase 3——強制人工 checkpoint，避免規劃錯就一路寫到底。
+
+### Hooks
+
+| Hook | 階段 | 做什麼 |
+|---|---|---|
+| `sensitive-file-guard.js` | PreToolUse | 阻止讀取/修改 `.env`、credentials、keys |
+| `markdown-lint.js` | PostToolUse | Markdown 格式檢查（front matter + 標題層級） |
+
+### 與其他兩個 plugin 的關係
+
+- `claude-auto-dev` 的 TDD loop 跟 `ai-coding-workflow` 的四階段不衝突——前者是「寫測試 → 寫實作」的 inner loop，後者是「需求 → 設計 → 實作 → 驗收」的 outer loop。可以同時掛載：用 `/planning` 拆需求出 acceptance criteria，再用 `/auto-dev` 自動跑 TDD。
+- `meeting-pipeline` 是獨立 domain（中文會議錄音），跟 ai-coding-workflow 沒交集。
+
+詳細：[github.com/ericcai0814/ai-workflow-design](https://github.com/ericcai0814/ai-workflow-design)
 
 ---
 
