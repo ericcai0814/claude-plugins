@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "ericcai0814-claude-plugins",
-  "description": "ericcai0814 個人 Claude Code plugin catalog。當前收錄 claude-auto-dev（TDD 自動循環）與 meeting-pipeline（中文會議錄音工作流）。",
+  "description": "ericcai0814 個人 Claude Code plugin catalog。當前收錄 claude-auto-dev（TDD 自動循環）、meeting-pipeline（中文會議錄音工作流）、ai-coding-workflow（團隊 AI 輔助開發流程）、evolve（配置生態系健檢）。",
   "owner": {
     "name": "ericcai0814",
     "email": "112368072+ericcai0814@users.noreply.github.com"
@@ -33,6 +33,15 @@
       },
       "description": "團隊標準化 AI 輔助開發工作流程。6 個獨立 skill（planning/frontend/backend/validation/review/troubleshooting）依任務類型分流，4 階段（理解/規劃/執行/驗收）流程，內建敏感檔守門 hook。",
       "keywords": ["workflow", "frontend", "backend", "planning", "code-review", "design-system", "api-design", "security"]
+    },
+    {
+      "name": "evolve",
+      "source": {
+        "source": "github",
+        "repo": "ericcai0814/evolve"
+      },
+      "description": "Configuration ecosystem auditor for Claude Code. /evolve 觸發 orchestrator + 6 個 specialized auditor sub-agents 平行稽核 ~/.claude/ 的 agents/skills/hooks/rules/memory 健康度，產出 GO / CONDITIONAL-GO / NO-GO 報告。",
+      "keywords": ["audit", "config", "agents", "skills", "hooks", "rules", "memory", "orchestrator"]
     }
   ]
 }
