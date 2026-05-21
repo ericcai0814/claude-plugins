@@ -28,9 +28,8 @@
     {
       "name": "ai-coding-workflow",
       "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/ericcai0814/ai-workflow-design.git",
-        "path": "plugins/ai-coding-workflow"
+        "source": "github",
+        "repo": "ericcai0814/claude-ai-coding-workflow"
       },
       "description": "團隊標準化 AI 輔助開發工作流程。6 個獨立 skill（planning/frontend/backend/validation/review/troubleshooting）依任務類型分流，4 階段（理解/規劃/執行/驗收）流程，內建敏感檔守門 hook。",
       "keywords": ["workflow", "frontend", "backend", "planning", "code-review", "design-system", "api-design", "security"]
