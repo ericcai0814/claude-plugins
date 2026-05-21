@@ -1,6 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "ericcai0814-claude-plugins",
+  "description": "ericcai0814 個人 Claude Code plugin catalog。當前收錄 claude-auto-dev（TDD 自動循環）與 meeting-pipeline（中文會議錄音工作流）。",
   "owner": {
     "name": "ericcai0814",
     "email": "112368072+ericcai0814@users.noreply.github.com"
