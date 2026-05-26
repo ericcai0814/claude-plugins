@@ -11,7 +11,7 @@
       "name": "claude-auto-dev",
       "source": {
         "source": "github",
-        "repo": "EricCaiCai/claude-auto-dev"
+        "repo": "ericcai0814/claude-auto-dev"
       },
       "description": "TDD 自動開發循環。Claude 跑 Red-Green-Refactor，Stop Hook 用 quality-gate 驗證完成。",
       "keywords": ["tdd", "automation", "stop-hook", "quality-gate"]

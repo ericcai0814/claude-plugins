@@ -21,7 +21,7 @@ self-hosted [Claude Code plugin marketplace](https://code.claude.com/docs/en/plu
 
 | Plugin | Platform | Source |
 |---|---|---|
-| [`claude-auto-dev`](#claude-auto-dev) | 跨平台 | [`EricCaiCai/claude-auto-dev`](https://github.com/EricCaiCai/claude-auto-dev) |
+| [`claude-auto-dev`](#claude-auto-dev) | 跨平台 | [`ericcai0814/claude-auto-dev`](https://github.com/ericcai0814/claude-auto-dev) |
 | [`meeting-pipeline`](#meeting-pipeline) | macOS / Apple Silicon | [`ericcai0814/claude-meeting-pipeline`](https://github.com/ericcai0814/claude-meeting-pipeline) |
 | [`ai-coding-workflow`](#ai-coding-workflow) | 跨平台 | [`ericcai0814/claude-ai-coding-workflow`](https://github.com/ericcai0814/claude-ai-coding-workflow) |
 
@@ -79,7 +79,7 @@ npx claude-auto-dev status      # 看 checkpoint
 npx claude-auto-dev abort       # 安全中斷
 ```
 
-詳細：[github.com/EricCaiCai/claude-auto-dev](https://github.com/EricCaiCai/claude-auto-dev)
+詳細：[github.com/ericcai0814/claude-auto-dev](https://github.com/ericcai0814/claude-auto-dev)
 
 ---
 
